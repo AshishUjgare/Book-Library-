@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{%  load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Book Library </title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container" align = 'center'>
+        <h1> Book Registration </h1>
+        <hr>
+        <form action="" method="POST">
+            {{form.as_p }}
+            {% csrf_token  %}
+            <input type="submit" value="Add Book">
+            <input type="reset" value="Clear Fields" >
+          
+        </form>
+    </div>
+</body>
+</html>
