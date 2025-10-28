@@ -1,77 +1,81 @@
-Book Library Registration Web App
-A web-based application for managing book registrations and records, built with Django, MySQL, and custom front-end components.
+Book Library Project
+A Django-based web application for book registration and management, using MySQL as the backend database.
 
-Features
-Add, view, and manage book details securely via an intuitive web interface.
+Project Overview
+This project allows users to add and manage books using a clean web interface. The backend is built with Django, and the frontend uses custom HTML/CSS stored in separate branches for better organization.
 
-Responsive front-end styled with HTML5, CSS3, and gradient backgrounds.
+Branching Strategy
+main: Default branch containing core settings and project-level files.
 
-Form validation, CSRF protection, and a user-friendly reset/clear fields option.
+app: Contains Django app-level files (e.g., models.py, admin.py, views.py).
 
-Data stored and managed efficiently using MySQL and Django ORM.
+static: Contains static assets like CSS files.
 
+templates: Contains HTML template files.
 
+This separation helps in organizing work but keep branches synchronized by merging changes regularly.
 
-Clone the repository:
+File Structure
+text
+book-library/
+├── manage.py
+├── requirements.txt
+├── booklibrary/                  # Project-level folder
+│   ├── __init__.py
+│   ├── settings.py              # Project configurations
+│   ├── urls.py                  # Root URL configurations
+│   ├── wsgi.py
+│   └── asgi.py
+├── app/                        # Django app folder (in 'app' branch)
+│   ├── __init__.py
+│   ├── admin.py                # Admin interface config
+│   ├── apps.py
+│   ├── models.py               # Database models for books
+│   ├── tests.py
+│   ├── urls.py
+│   ├── views.py
+│   ├── migrations/
+│   ├── templates/              # (in 'templates' branch)
+│   │   └── app/
+│   │       └── book_form.html # HTML form template for book registration
+│   └── static/                 # (in 'static' branch)
+│       └── app/
+│           └── style.css       # CSS file for styling forms
+└── README.md
+Setup Instructions
+Clone the repository and checkout the required branches:
 
 bash
-git clone https://github.com/yourusername/book-library-app.git
-cd book-library-app
-Install dependencies:
+git clone https://github.com/yourusername/Book-Library.git
+cd Book-Library
+git checkout main
+git checkout app
+git checkout static
+git checkout templates
+Create and activate a Python virtual environment and install dependencies:
 
 bash
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
-Configure MySQL database:
-Edit settings.py to update your database configuration:
+Configure your MySQL database in booklibrary/settings.py.
 
-python
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': '<your-db-name>',
-        'USER': '<your-db-user>',
-        'PASSWORD': '<your-db-password>',
-        'HOST': 'localhost',
-        'PORT': '3306',
-    }
-}
-Run migrations:
+Run migrations and start the development server:
 
 bash
-python manage.py makemigrations
 python manage.py migrate
-Start the development server:
-
-bash
 python manage.py runserver
-Access the app:
-Open http://127.0.0.1:8000 in your browser.
+Access the app at http://127.0.0.1:8000.
 
 Usage
-Visit the main page to register a new book.
+Add new books via the web form.
 
-Submit the form to add a book to the database.
+Use the clear fields button to reset the form after submission.
 
+Notes on Branching
+Keep branches regularly merged to avoid conflicts.
 
-Tech Stack
-Backend: Django
+Normally, static and template files reside in the app folder, but they are separated here for organizational clarity.
 
-Frontend: HTML5, CSS3, JavaScript
-
-Database: MySQL
-
-Project Structure
-templates/: HTML template files (using Django templating)
-
-static/css/: Custom stylesheet(s) for styling the forms and layout
-
-app/models.py: Django models for book records
-
-app/views.py: Page logic for displaying and processing the registration form
-
-Contributing
-Open to suggestions and improvements via pull requests.
-
-License
-MIT
+Merge static and templates branches into app or main before deployment.
 
