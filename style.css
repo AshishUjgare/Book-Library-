@@ -1,0 +1,33 @@
+.container {
+ margin: auto;
+ width : 300px;
+ height: max-content;
+ background: linear-gradient(65deg , orange ,red , black );
+ border-radius: 30px;
+ box-shadow: 0px 0px 15px  yellow;
+}
+
+.container h1 {
+    text-align: center;
+    letter-spacing: 5px;
+    color : wheat;
+    font-style: italic;
+}
+
+.container input[type = "submit"] {
+    padding: 5px;
+    width: 150px;
+    border-radius: 15px;
+    background-color: black;
+    color: yellowgreen;
+    margin-bottom: 10px;
+
+}
+input[type = "number"] , input[type = "text"] {
+    margin: 0px 20px 0px 20px;
+    width: 180px;
+    height: 25px;
+    border-radius: 10px 0px 10px 00px;
+    font-size: 20px;
+    color: blue;
+}
